@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+TC:wght@100;300;400;500;700;900&family=Varela&display=swap");
+* {
+  font-family: "Noto Sans TC", sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* 反白選取樣式 */
+::-moz-selection {
+  background-color: rgba(color(primary-200), 0.8);
+}
+
+::selection {
+  background-color: rgba(color(primary-200), 0.8);
+}
+
+::-webkit-scrollbar {
+  width: px(5);
+  background-color: color(gray-0);
+  @include rounded(100);
+}
+
+::-webkit-scrollbar-thumb {
+  width: px(5);
+  background-color: color(gray-150);
+  @include rounded(100);
+}
+
+body {
+  color: color(gray-900);
+  min-height: 100svh;
+  background-color: color(primary-900);
+  background: color(linear);
+
+  &:has(.overlay) {
+    overflow: hidden;
+  }
+}

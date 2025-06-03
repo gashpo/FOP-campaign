@@ -1,0 +1,28 @@
+// 斷點
+@import "breakpoints";
+// 尺寸
+@import "sizing";
+// 色票
+@import "colors";
+// 陰影
+@import "shadow";
+// 字體
+@import "font";
+
+// Hover (Mouse Only)
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+// 用法
+// @include hover{
+//   ~ hover 時的內容 ~
+// }
+
+// 漸變
+@mixin transition($key: background-color, $time: 0.3s) {
+  transition: $key $time ease-in-out;
+}

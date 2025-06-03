@@ -1,0 +1,24 @@
+hr,
+.divider {
+  padding: px(8) px(0);
+  width: 100%;
+
+  &::before {
+    content: "";
+    display: block;
+    height: px(1);
+    width: 100%;
+    background-color: color(gray-100);
+  }
+
+  &.vertical {
+    padding: px(0) px(8);
+    width: auto;
+    height: 100%;
+
+    &::before {
+      width: px(1);
+      height: 100%;
+    }
+  }
+}

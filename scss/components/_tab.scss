@@ -1,0 +1,106 @@
+.tab-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .tab {
+    overflow-x: auto;
+    width: 100%;
+    display: flex;
+    border-bottom: px(1) solid color(gray-150);
+    position: relative;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &::after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      width: px(40);
+      font-family: "Material Icons";
+      // content: "\e5cc";
+      font-size: fontsize(24);
+      text-align: right;
+      background: linear-gradient(
+        to right,
+        rgba(color(gray-50), 0) 0%,
+        color(gray-50) 50%
+      );
+    }
+
+    .tab-item {
+      padding: px(16);
+      @include fontRWD(body3);
+      color: color(gray-400);
+      cursor: pointer;
+      width: px(90);
+      min-width: max-content;
+      @include transition(color);
+      text-align: center;
+
+      &.active {
+        color: color(primary-500) !important;
+        border-bottom: px(3) solid color(primary-500);
+        cursor: default;
+      }
+
+      @include hover {
+        color: color(gray-700);
+      }
+
+      &.disabled {
+        color: color(gray-150);
+        cursor: default;
+      }
+    }
+
+    .tab-underline {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: px(3);
+      background: color(primary-500);
+      width: px(90);
+      @include transition(all);
+    }
+  }
+
+  .tab-scroll-left,
+  .tab-scroll-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: px(40);
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    font-size: fontsize(24);
+    display: none;
+  }
+
+  .tab-scroll-left {
+    left: 0;
+    background: linear-gradient(
+      to left,
+      rgba(color(gray-50), 0) 0%,
+      color(gray-50) 50%
+    );
+  }
+
+  .tab-scroll-right {
+    right: 0;
+    background: linear-gradient(
+      to right,
+      rgba(color(gray-50), 0) 0%,
+      color(gray-50) 50%
+    );
+    justify-content: flex-end;
+  }
+}
+
+.tab-content {
+  display: none;
+}

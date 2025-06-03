@@ -1,0 +1,99 @@
+.toast {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: px(8);
+    padding: px(8) px(16);
+    background-color: color(gray-900);
+    color: color(gray-0);
+    @include rounded(16);
+    @include fontRWD(body4);
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    animation: toast-show 0.5s ease-out both;
+
+    i {
+        font-size: fontsize(20);
+    }
+
+    .close {
+        cursor: pointer;
+        font-size: fontsize(18);
+    }
+
+    &.fadeout {
+        animation: toast-fadeout 5s ease-out both;
+    }
+
+    &.toast-success {
+        background-color: color(success-500);
+    }
+
+    &.toast-error {
+        background-color: color(error-500);
+    }
+}
+
+@keyframes toast-show {
+    0% {
+        top: px(120);
+        opacity: 0;
+    }
+    100% {
+        top: px(140);
+        opacity: 1;
+    }
+}
+
+@keyframes toast-fadeout {
+    0% {
+        top: px(120);
+        opacity: 0;
+    }
+    10% {
+        top: px(140);
+        opacity: 1;
+    }
+    90% {
+        top: px(140);
+        opacity: 1;
+    }
+    100% {
+        top: px(140);
+        opacity: 0;
+    }
+}
+
+@include max-to(mobile) {
+    @keyframes toast-show {
+        0% {
+            top: px(80);
+            opacity: 0;
+        }
+        100% {
+            top: px(100);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes toast-fadeout {
+        0% {
+            top: px(80);
+            opacity: 0;
+        }
+        10% {
+            top: px(120);
+            opacity: 1;
+        }
+        90% {
+            top: px(120);
+            opacity: 1;
+        }
+        100% {
+            top: px(120);
+            opacity: 0;
+        }
+    }
+}

@@ -1,0 +1,140 @@
+// 色彩定義
+$colors: ();
+
+@function color($key) {
+  @return map-get($colors, $key);
+}
+
+// 灰階
+$colors: map-merge(
+  $colors,
+  (
+    gray-0: #ffffff,
+    gray-50: #f9f9f9,
+    gray-100: #e5e5e5,
+    gray-150: #d7d7d7,
+    gray-200: #cacaca,
+    gray-300: #b0b0b0,
+    gray-400: #959595,
+    gray-500: #7b7b7b,
+    gray-600: #626262,
+    gray-700: #4c4c4c,
+    gray-800: #313131,
+    gray-850: #222222,
+    gray-900: #191919,
+    gray-1000: #000000,
+  )
+);
+
+// 主色系
+$colors: map-merge(
+  $colors,
+  (
+    primary-20: #f8f7ff,
+    primary-50: #f0e5fd,
+    primary-100: #e0ccfc,
+    primary-200: #c199f8,
+    primary-300: #a366f5,
+    primary-400: #8433f1,
+    primary-500: #6500ee,
+    primary-600: #5100be,
+    primary-700: #3d008f,
+    primary-800: #28005f,
+    primary-900: #140030,
+  )
+);
+
+// 狀態色 - 成功
+$colors: map-merge(
+  $colors,
+  (
+    success-50: #e9f8f2,
+    success-100: #d4f2e5,
+    success-150: #beebd8,
+    success-200: #a8e4cb,
+    success-300: #7dd7b1,
+    success-400: #51c997,
+    success-500: #26bc7d,
+    success-600: #1e9664,
+    success-700: #17714b,
+    success-800: #0f4b32,
+    success-850: #0b3826,
+    success-900: #082619,
+  )
+);
+
+// 狀態色 - 警告
+$colors: map-merge(
+  $colors,
+  (
+    warning-50: #fff5e5,
+    warning-100: #ffebcc,
+    warning-150: #ffe0b3,
+    warning-200: #ffd699,
+    warning-300: #ffc266,
+    warning-400: #ffad33,
+    warning-500: #ff9900,
+    warning-600: #cc7a00,
+    warning-700: #995c00,
+    warning-800: #663d00,
+    warning-850: #4d2e00,
+    warning-900: #331f00,
+  )
+);
+
+// 狀態色 - 錯誤
+$colors: map-merge(
+  $colors,
+  (
+    error-50: #fff2ef,
+    error-100: #f3d7d0,
+    error-150: #ecc2b9,
+    error-200: #e6aea1,
+    error-300: #da8673,
+    error-400: #cd5d44,
+    error-500: #c13515,
+    error-600: #9a2a11,
+    error-700: #74200d,
+    error-800: #4d1508,
+    error-850: #3a1006,
+    error-900: #270b04,
+  )
+);
+
+// 輔色系
+$colors: map-merge(
+  $colors,
+  (
+    secondary-50: #ffefef,
+    secondary-100: #ffdede,
+    secondary-150: #ffcece,
+    secondary-200: #ffbdbd,
+    secondary-300: #ff9d9d,
+    secondary-400: #ff7c7c,
+    secondary-500: #ff5b5b,
+    secondary-600: #d64949,
+    secondary-700: #ad3737,
+    secondary-800: #842424,
+    secondary-850: #701b1b,
+    secondary-900: #5b1212,
+  )
+);
+
+$colors: map-merge(
+  $colors,
+  (
+    linear: linear-gradient(to bottom, color(primary-800) 0%, color(primary-900) 100%),
+  )
+);
+
+@each $name, $value in $colors {
+  .color-#{$name} {
+    color: $value;
+  }
+}
+
+@each $name, $value in $colors {
+  .bg-#{$name} {
+    background-color: $value;
+  }
+}

@@ -1,0 +1,226 @@
+input {
+  @include fontRWD(body3);
+  @include rounded(20);
+  border: px(1) solid color(gray-150);
+
+  &::placeholder {
+    color: color(gray-300);
+  }
+
+  &:disabled {
+    background-color: color(gray-50);
+    color: color(gray-500);
+  }
+
+  &[type="text"], &[type="tel"] {
+    height: px(48);
+    padding: px(12) px(46) px(12) px(16);
+    width: 100%;
+  }
+}
+
+.input-wrapper {
+  display: inline-flex;
+  gap: px(16);
+  width: 100%;
+
+  label {
+    @include fontRWD(body4);
+    line-height: fontsize(48);
+  }
+
+  .input-content {
+    display: inline-flex;
+    gap: px(4);
+    width: 100%;
+
+    > div {
+      display: inline-flex;
+      gap: px(4);
+      flex-direction: column;
+      position: relative;
+      width: 100%;
+    }
+
+    [type="submit"] {
+      height: px(48);
+      @include rounded(20);
+    }
+
+    i {
+      position: absolute;
+      right: px(16);
+      top: px(12);
+      font-size: fontsize(22) !important;
+      color: color(gray-500);
+    }
+
+    .error-message {
+      @include fontRWD(caption);
+      color: color(error-500);
+    }
+
+    .helper {
+      @include fontRWD(caption);
+      color: color(gray-400);
+    }
+  }
+
+  &:has(input:required) {
+    label::before {
+      content: "*";
+      color: color(error-500);
+      margin-right: px(2);
+    }
+  }
+
+  &.input-vertical {
+    flex-direction: column;
+    gap: px(8);
+
+    label {
+      line-height: 150%;
+    }
+  }
+}
+
+.otp-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .error-message {
+    flex: 100%;
+    @include fontRWD(body4);
+    color: color(error-500);
+    text-align: left;
+  }
+
+  input {
+    height: px(52);
+    width: px(52);
+    @include transition(border-color);
+    text-align: center;
+    @include fontRWD(body2);
+    -moz-appearance: textfield;
+
+    &:focus {
+      border: px(2) solid color(gray-900);
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  &.error {
+    input {
+      background-color: color(error-50);
+      border: px(2) solid color(error-500);
+    }
+  }
+}
+
+.checkbox-wrapper,
+.radio-wrapper {
+  label {
+    display: inline-flex;
+    align-items: center;
+    gap: px(8);
+    @include fontRWD(body3);
+    min-width: px(150);
+    cursor: pointer;
+
+    input {
+      &[type="checkbox"],
+      &[type="radio"] {
+        appearance: none; // 隱藏原生樣式
+        width: px(24);
+        height: px(24);
+        cursor: pointer;
+        border: px(1) solid color(gray-150);
+        background-color: color(gray-0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        @include transition(all);
+
+        @include hover {
+          border-color: color(gray-500);
+        }
+
+        &:disabled {
+          background-color: color(gray-50) !important;
+          border-color: color(gray-150) !important;
+          cursor: default;
+        }
+
+        &:checked {
+          background-color: color(primary-500);
+          border-color: color(primary-500);
+
+          &::before {
+            opacity: 1;
+          }
+
+          @include hover {
+            background-color: color(primary-600);
+            border-color: color(primary-600);
+          }
+
+          &:disabled {
+            background-color: color(primary-100) !important;
+            border-color: color(primary-100) !important;
+          }
+        }
+      }
+    }
+
+    &:has(input:disabled) {
+      cursor: default;
+    }
+  }
+}
+
+.checkbox-wrapper {
+  label {
+    input[type="checkbox"] {
+      @include rounded(8);
+
+      &::before {
+        font-family: "Material Icons";
+        content: "\e5ca";
+        font-size: fontsize(20);
+        color: color(gray-0);
+        position: absolute;
+        opacity: 0;
+        @include transition(opacity, 0.2s);
+      }
+    }
+  }
+}
+
+.radio-wrapper {
+  label {
+    input {
+      &[type="radio"] {
+        @include rounded(20);
+
+        &::before {
+          content: "";
+          height: px(12);
+          width: px(12);
+          background-color: color(gray-0);
+          @include rounded(20);
+          position: absolute;
+          opacity: 0;
+          @include transition(opacity, 0.2s);
+        }
+      }
+    }
+  }
+}

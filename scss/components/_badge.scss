@@ -1,0 +1,14 @@
+.badge {
+  padding: px(4) px(8);
+  @include rounded(4);
+  background-color: color(gray-50);
+  @include fontRWD(caption);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: px(4);
+
+  i {
+    font-size: fontsize(14) !important;
+  }
+}

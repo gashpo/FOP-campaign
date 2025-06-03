@@ -1,0 +1,88 @@
+.datepicker-container {
+  overflow: hidden !important;
+
+  .datepicker {
+    display: flex;
+    flex-direction: column;
+    gap: px(24);
+
+    .datepicker-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: px(8);
+      }
+
+      > i {
+        font-size: fontsize(21);
+        color: color(gray-300);
+        cursor: pointer;
+      }
+    }
+
+    .days {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: calc((100% - px(40) * 7) / 6);
+
+      span {
+        text-transform: uppercase;
+        color: color(gray-300);
+        padding: px(4);
+        width: px(40);
+        font-weight: fontweight(Bold);
+      }
+    }
+
+    .dates {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: px(10) calc((100% - px(40) * 7) / 6);
+
+      span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: px(40);
+        height: px(40);
+        @include rounded(100);
+        font-weight: fontweight(Medium);
+        cursor: pointer;
+        @include transition(all, 0.2s);
+
+        &.today,
+        &.selected {
+          background-color: color(primary-500);
+          color: color(gray-0);
+          font-weight: 700;
+          pointer-events: none;
+        }
+
+        &.disabled {
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        @include hover {
+          background-color: color(gray-50);
+        }
+      }
+    }
+  }
+
+  @include max-to(mobile) {
+    height: px(540);
+
+    .datepicker {
+      padding-bottom: px(70);
+    }
+  }
+}

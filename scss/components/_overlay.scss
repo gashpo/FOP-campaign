@@ -1,0 +1,18 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(color(gray-1000), 0.75);
+  z-index: 3;
+
+  &.on-popup {
+    // display: none;
+    z-index: 5;
+
+    &.show {
+        display: block;
+    }
+  }
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title id="pageTitle">FunOne Points | 7月漫博好好玩</title>
+    <meta name="description" content="用 FunOne Points 紅利點數，輕鬆兌換各大通路商品與票券！累積點數，享受超值回饋，讓每點紅利都更有價值。" />
+    <meta name="keywords" content="FunOne Points, 紅利點數, 點數兌換, 商品兌換, 會員回饋, 紅利商城, 優惠兌換">
+    <!-- 瀏覽器 icon -->
+    <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon" sizes="any" />
+
+    <!-- 分享網頁時會顯示的縮圖 -->
+    <meta property="og:image" content="https://points.funone.io/images/og-image.png" />
+
+    <!-- 是否使用全屏顯示 -->
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- iOS Safari Set Up -->
+    <!-- 新增到桌面時 開啟後 上方狀態欄顯示顏色  -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- iOS 捷徑 icon -->
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+
+    <!-- 防止手機版電話號碼出現撥號連結 -->
+    <meta name="format-detection" content="telephone=no" />
+    
+    <!-- Google Material Symbols & Icons -->
+    <!-- Google Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined">
+    <!-- Google Material Symbols -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
+    
+    <!-- 樣式表 -->
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <div id="lottie-bg"></div>
+
+    <div class="container">
+        <!-- demo先偷把error頁的連結放在這裡 -->
+        <div class="logo"><a href="error.html"><img src="images/logo-dark.svg"></a></div>
+        <div class="main">
+            <div class="number">
+                <span>卡片號碼</span>
+                <h3>0123456789</h3>
+            </div>
+            <div class="content">
+                <h4>7月漫博好好玩</h4>
+                <p>輸入手機號碼免費獲得 FunOne Points，<br>
+                    可兌換7-11 咖啡券、肯德基兌換券...等好康！<br>
+                    <a class="link-secondary" href="https://points.funone.io/" target="_blank"><span>了解更多</span></a>
+                </p>
+            </div>
+            <div class="form">
+                <div class="input-wrapper">
+                    <div class="input-content">
+                        <div>
+                            <!-- demo先偷把失敗彈窗的觸發放在這裡 -->
+                            <div class="select-wrapper" for="popup-failed">
+                                <div class="select-dropdown disabled">+886</div>
+                                <div class="select-items">
+                                    <ul>
+                                        <li>
+                                            +886
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="tel" id="mobile" maxlength="10" placeholder="手機號碼" pattern="[0-9]*" inputmode="numeric">
+                            <!-- <i class="material-symbols-outlined">credit_card</i>
+                            <span class="error-message">Error message</span>
+                            <span class="helper">Helper text</span> -->
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-l" id="success" for="popup-success" disabled>點我領取</button>
+            </div>
+        </div>
+        <div class="copyright">2025 GASH POINT Co., Ltd. All Rights Reserved.</div>
+    </div>
+
+    <div class="popup" id="popup-failed">
+        <div class="images"><img src="images/illustration-failed.svg"></div>
+        <h4>活動已結束</h4>
+        <div class="popup-container">
+          <p>所有 FunOne Points 已發放完畢，感謝您的參與。如需了解最新活動資訊，歡迎持續關注我們的<a class="link-secondary" href="https://points.funone.io/"><span>官網</span></a>。</p>
+        </div>
+        <!-- <h4>領取失敗</h4>
+        <div class="popup-container">
+          <p>卡片號碼已被使用，請檢查是否掃描正確的卡片。</p>
+        </div>
+        <h4>領取失敗</h4>
+        <div class="popup-container">
+          <p>您已達到領取上限。<br>感謝您的參與，請持續關注我們未來的精彩活動！</p>
+        </div> -->
+    </div>
+
+    <div class="popup" id="popup-success">
+        <div class="images">
+            <img class="img-left" src="images/Illustration-success.svg">
+            <img class="img-center" src="images/Illustration-success.svg">
+            <img class="img-right" src="images/Illustration-success.svg">
+        </div>
+        <h1>+50</h1>
+        <div class="popup-container">
+          <p>恭喜您已成功獲得 50 點 FunOne Points。想看看能兌換什麼好康商品嗎？</p>
+        </div>
+        <div class="btns">
+          <button class="btn-l" onclick="window.open('https://points.funone.io/');">前往兌換商品</button>
+        </div>
+    </div>
+    
+    <canvas id="canvas"></canvas>
+
+    <!-- Lottie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+    <script src="js/lottie-images.js"></script>
+
+    <!-- jQuery -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+
+    <script src="js/popup.js"></script>
+    <script src="js/select.js"></script>
+    <script src="js/confetti.js"></script>
+
+    <script>
+        const input = document.getElementById('mobile');
+        const btn = document.getElementById('success');
+
+        input.addEventListener('input', function() {
+            // 只允許數字
+            this.value = this.value.replace(/\D/g, '');
+
+            // 台灣手機格式：10碼，且開頭為09
+            const isValid = /^09\d{8}$/.test(this.value);
+
+            btn.disabled = !isValid;
+        });
+    </script>
+</body>
+
+</html>

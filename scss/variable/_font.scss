@@ -1,0 +1,192 @@
+// 字重
+$font-weight: (
+  "Light": 300,
+  "Regular": 400,
+  "Medium": 500,
+  "Bold": 700,
+);
+@function fontweight($key) {
+  @return map-get($font-weight, $key);
+}
+
+// 字體大小
+@function fontsize($key) {
+  @return calc($key / 16 * 1rem);
+}
+
+// 字體定義
+$font-family: (
+  desktop: (
+    h1: (
+      font-size: fontsize(48),
+      font-weight: fontweight(Bold),
+      line-height: 120%,
+    ),
+    h2: (
+      font-size: fontsize(40),
+      font-weight: fontweight(Bold),
+      line-height: 120%,
+    ),
+    h3: (
+      font-size: fontsize(32),
+      font-weight: fontweight(Bold),
+      line-height: 120%,
+    ),
+    h4: (
+      font-size: fontsize(24),
+      font-weight: fontweight(Bold),
+      line-height: 120%,
+    ),
+    h5: (
+      font-size: fontsize(18),
+      font-weight: fontweight(Bold),
+      line-height: 120%,
+    ),
+    h6: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Bold),
+      line-height: 120%,
+    ),
+    body1: (
+      font-size: fontsize(20),
+      font-weight: fontweight(Regular),
+      line-height: 150%,
+    ),
+    body2: (
+      font-size: fontsize(18),
+      font-weight: fontweight(Regular),
+      line-height: 150%,
+    ),
+    body3: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Regular),
+      line-height: 150%,
+    ),
+    body4: (
+      font-size: fontsize(14),
+      font-weight: fontweight(Regular),
+      line-height: 150%,
+    ),
+    caption: (
+      font-size: fontsize(12),
+      font-weight: fontweight(Regular),
+      line-height: 120%,
+    ),
+  ),
+  tablet: (
+    h1: (
+      font-size: fontsize(38),
+      font-weight: fontweight(Bold),
+      line-height: 120%,
+    ),
+    h2: (
+      font-size: fontsize(32),
+      font-weight: fontweight(Bold),
+      line-height: 120%,
+    ),
+    h3: (
+      font-size: fontsize(24),
+      font-weight: fontweight(Bold),
+      line-height: 120%,
+    ),
+    h4: (
+      font-size: fontsize(20),
+      font-weight: fontweight(Bold),
+      line-height: 120%,
+    ),
+    h5: (
+      font-size: fontsize(18),
+      font-weight: fontweight(Bold),
+      line-height: 120%,
+    ),
+    h6: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Bold),
+      line-height: 120%,
+    ),
+    body1: (
+      font-size: fontsize(20),
+      font-weight: fontweight(Regular),
+      line-height: 150%,
+    ),
+    body2: (
+      font-size: fontsize(18),
+      font-weight: fontweight(Regular),
+      line-height: 150%,
+    ),
+    body3: (
+      font-size: fontsize(16),
+      font-weight: fontweight(Regular),
+      line-height: 150%,
+    ),
+    body4: (
+      font-size: fontsize(14),
+      font-weight: fontweight(Regular),
+      line-height: 150%,
+    ),
+    caption: (
+      font-size: fontsize(12),
+      font-weight: fontweight(Regular),
+      line-height: 120%,
+    ),
+  ),
+);
+
+@function fontfamily($key, $device: desktop, $property: font-size) {
+  @if map-has-key($font-family, $device) {
+    $device-map: map-get($font-family, $device);
+    @if map-has-key($device-map, $key) {
+      $style-map: map-get($device-map, $key);
+      @if map-has-key($style-map, $property) {
+        @return map-get($style-map, $property);
+      } @else {
+        @error "The property `#{$property}` does not exist for `#{$key}` in the `#{$device}` map.";
+      }
+    } @else {
+      @error "The key `#{$key}` does not exist in the `#{$device}` map.";
+    }
+  } @else {
+    @error "The device `#{$device}` does not exist in the `$font-family` map.";
+  }
+}
+
+@mixin fontRWD($element) {
+  // 預設讀取 desktop 的樣式
+  font-size: fontfamily($element);
+  font-weight: fontfamily($element, desktop, font-weight);
+  line-height: fontfamily($element, desktop, line-height);
+
+  // 加入其他斷點的樣式
+  @include max-to(tablet) {
+    font-size: fontfamily($element, tablet);
+    font-weight: fontfamily($element, tablet, font-weight);
+    line-height: fontfamily($element, desktop, line-height);
+  }
+}
+
+// 用法
+p,
+span {
+  @include fontRWD(body3);
+}
+h1 {
+  @include fontRWD(h1);
+}
+h2 {
+  @include fontRWD(h2);
+}
+h3 {
+  @include fontRWD(h3);
+}
+h4 {
+  @include fontRWD(h4);
+}
+h5 {
+  @include fontRWD(h5);
+}
+h6 {
+  @include fontRWD(h6);
+}
+.caption {
+  @include fontRWD(caption);
+}

@@ -1,0 +1,12 @@
+@mixin dropshadow($direction: null) {
+  $shadow-color: rgba(color(gray-1000), 0.1);
+  $blur: px(10);
+
+  @if $direction == up {
+    box-shadow: 0 px(-2) $blur $shadow-color;
+  } @else if $direction == down {
+    box-shadow: 0 px(2) $blur $shadow-color;
+  } @else {
+    box-shadow: 0 0 $blur $shadow-color;
+  }
+}

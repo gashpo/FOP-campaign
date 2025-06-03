@@ -1,0 +1,210 @@
+button,
+.btn,
+input[type="submit"] {
+  padding: px(8) px(16);
+  @include rounded(16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: px(8);
+  min-width: px(100);
+  @include transition;
+  line-height: 1.5;
+  @include fontRWD(body4);
+  cursor: pointer;
+  border: px(1) solid transparent;
+
+  i {
+    height: px(20);
+    width: px(20);
+    font-size: fontsize(20) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.icon-only {
+    padding: px(8) px(8);
+    min-width: auto;
+  }
+
+  // 尺寸
+  /* Large */
+  &.btn-l {
+    padding: px(12) px(16);
+    @include fontRWD(body3);
+    @include rounded(20);
+
+    i {
+      height: px(22);
+      width: px(22);
+      font-size: fontsize(22) !important;
+    }
+
+    &.icon-only {
+      padding: px(12) px(12);
+    }
+  }
+
+  /* Extra Large */
+  &.btn-xl {
+    padding: px(16) px(40);
+    @include fontRWD(body3);
+    @include rounded(24);
+
+    i {
+      height: px(22);
+      width: px(22);
+      font-size: fontsize(22) !important;
+    }
+
+    &.icon-only {
+      padding: px(16) px(16);
+    }
+  }
+
+  // 樣式
+  /* primary */
+  background-color: color(primary-500);
+  color: color(gray-0);
+
+  i {
+    color: color(gray-0);
+  }
+
+  @include hover {
+    background-color: color(primary-600);
+  }
+
+  &:disabled,
+  &.loading {
+    background-color: color(primary-100) !important;
+    cursor: default;
+  }
+
+  /* Secondary */
+  &.btn-secondary {
+    background-color: color(gray-0);
+    border-color: color(gray-150);
+    color: color(gray-900);
+
+    i {
+      color: color(gray-100);
+    }
+
+    @include hover {
+      background-color: color(gray-50);
+    }
+
+    &:disabled,
+    &.loading {
+      background-color: color(gray-0) !important;
+      color: color(gray-150);
+
+      i {
+        color: color(gray-150);
+      }
+    }
+  }
+
+  /* Tertiary */
+  &.btn-tertiary {
+    background-color: transparent;
+    color: color(gray-500);
+
+    i {
+      color: color(gray-500);
+    }
+
+    @include hover {
+      background-color: color(gray-50);
+    }
+
+    &:disabled {
+      background-color: transparent !important;
+      color: color(gray-150);
+
+      i {
+        color: color(gray-150);
+      }
+    }
+
+    &.loading {
+      background-color: transparent !important;
+    }
+  }
+}
+
+a,
+.link {
+  text-decoration: none;
+
+  * {
+    color: color(primary-500);
+    @include transition(color);
+  }
+
+  span {
+    text-decoration: underline;
+  }
+
+  i {
+    font-size: fontsize(22) !important;
+    transform: translate(0, px(4));
+    margin-right: px(4);
+  }
+
+  @include hover {
+    * {
+      color: color(primary-600);
+    }
+  }
+
+  // 尺寸
+  /* Small */
+  &.link-s {
+    * {
+      @include fontRWD(caption);
+    }
+
+    i {
+      font-size: fontsize(16) !important;
+      transform: translate(0, px(3));
+    }
+  }
+
+  // 樣式
+  /* Secondary */
+  &.link-secondary {
+    * {
+      color: color(gray-900);
+    }
+  }
+
+  /* 沒有底線 */
+  &.link-noline {
+    span {
+      text-decoration: none;
+
+      @include hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@mixin button($size: null) {
+  @if $size == l {
+    padding: px(12) px(16);
+    @include rounded(20);
+    @include fontRWD(body3);
+  } @else if $size == xl {
+    padding: px(16) px(40);
+    @include rounded(24);
+    @include fontRWD(body3);
+  } @else {
+    padding: px(8) px(16);
+    @include rounded(16);
+    @include fontRWD(body4);
+  }
+}

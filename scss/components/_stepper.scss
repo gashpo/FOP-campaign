@@ -1,0 +1,49 @@
+.stepper-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: px(4);
+  position: relative;
+
+  .stepper-content {
+    display: flex;
+    align-items: center;
+    gap: px(8);
+
+    button {
+      padding: px(8);
+      background-color: color(primary-50);
+      min-width: auto;
+      @include rounded(16);
+
+      i {
+        color: color(primary-500);
+        @include transition(color, 0.2s);
+      }
+
+      &:disabled {
+        background-color: color(primary-50) !important;
+
+        i {
+          color: color(primary-100);
+        }
+      }
+    }
+
+    .count {
+      min-width: px(70);
+      text-align: center;
+      @include fontRWD(body2);
+    }
+  }
+
+  .helper {
+    @include fontRWD(caption);
+    color: color(gray-500);
+    position: absolute;
+    top: calc(100% + px(4));
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: max-content;
+  }
+}

@@ -1,0 +1,14 @@
+// 尺寸
+@function px($key) {
+  @return calc($key / 16 * 1rem);
+}
+
+// 導圓角
+@mixin rounded($key) {
+  border-radius: px($key);
+}
+
+// 字體大小
+@mixin fontsize($key) {
+  font-size: px($key);
+}
