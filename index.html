@@ -138,10 +138,25 @@
             // 只允許數字
             this.value = this.value.replace(/\D/g, '');
 
-            // 台灣手機格式：10碼，且開頭為09
-            const isValid = /^09\d{8}$/.test(this.value);
+            // 動態調整 maxlength
+            if (this.value.startsWith('9')) {
+                this.maxLength = 9;
+            } else {
+                this.maxLength = 10;
+            }
 
+            // 驗證格式
+            const isValid = (
+                /^09\d{8}$/.test(this.value) ||  // 09開頭10碼
+                /^9\d{8}$/.test(this.value)      // 9開頭9碼
+            );
             btn.disabled = !isValid;
+        });
+
+        input.addEventListener('blur', function() {
+            if (/^9\d{8}$/.test(this.value)) {
+                this.value = '0' + this.value;
+            }
         });
     </script>
 </body>
