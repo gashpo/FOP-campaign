@@ -2212,9 +2212,9 @@ input[type=text], input[type=tel] {
 @media (max-width: 991px) {
   #lottie-bg {
     top: 3.75rem;
-    right: -50dvh;
+    right: -50lvh;
     bottom: 3.75rem;
-    left: -50dvh;
+    left: -50lvh;
   }
 }
 

@@ -8,9 +8,9 @@
 
     @include max-to(tablet) {
         top: px(60);
-        right: -50dvh;
+        right: -50lvh;
         bottom: px(60);
-        left: -50dvh;
+        left: -50lvh;
     }
 }
 
