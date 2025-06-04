@@ -6,11 +6,11 @@
     left: 0;
     z-index: 0;
 
-    @include max-to(mobile) {
+    @include max-to(tablet) {
         top: px(60);
-        right: -50svh;
+        right: -50dvh;
         bottom: px(60);
-        left: -50svh;
+        left: -50dvh;
     }
 }
 
@@ -172,7 +172,7 @@ footer {
         }
     }
 
-    @include max-to(mobile) {
+    @include max-to(tablet) {
         background-size: 200%;
     }
 }

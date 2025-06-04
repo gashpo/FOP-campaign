@@ -2209,12 +2209,12 @@ input[type=text], input[type=tel] {
   left: 0;
   z-index: 0;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   #lottie-bg {
     top: 3.75rem;
-    right: -50svh;
+    right: -50dvh;
     bottom: 3.75rem;
-    left: -50svh;
+    left: -50dvh;
   }
 }
 
@@ -2369,7 +2369,7 @@ footer {
 .container .main .form .input-wrapper .input-content div:first-child {
   width: 7.5rem;
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .container {
     background-size: 200%;
   }
