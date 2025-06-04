@@ -7,9 +7,9 @@
     z-index: 0;
 
     @include max-to(tablet) {
-        top: px(60);
+        top: px(32);
         right: -50lvh;
-        bottom: px(60);
+        bottom: px(32);
         left: -50lvh;
     }
 }
