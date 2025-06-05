@@ -881,6 +881,8 @@ body {
   min-height: 100svh;
   background-color: #140030;
   background: linear-gradient(to bottom, #28005f 0%, #140030 100%);
+  position: relative;
+  z-index: 1;
 }
 body:has(.overlay) {
   overflow: hidden;

@@ -44,6 +44,8 @@ body {
   min-height: 100svh;
   background-color: color(primary-900);
   background: color(linear);
+  position: relative;
+  z-index: 1;
 
   &:has(.overlay) {
     overflow: hidden;
