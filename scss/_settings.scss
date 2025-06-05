@@ -25,6 +25,20 @@
   @include rounded(100);
 }
 
+html {
+  background-color: color(primary-900);
+
+  &::before {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100dvw;
+    height: 50lvh;
+    content: "";
+    background-color: color(primary-800);
+  }
+}
+
 body {
   color: color(gray-900);
   min-height: 100svh;

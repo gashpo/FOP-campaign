@@ -863,6 +863,19 @@ h6 {
   border-radius: 6.25rem;
 }
 
+html {
+  background-color: #140030;
+}
+html::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 50lvh;
+  content: "";
+  background-color: #28005f;
+}
+
 body {
   color: #191919;
   min-height: 100svh;
