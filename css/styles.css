@@ -2305,9 +2305,20 @@ footer {
   text-align: center;
 }
 
+.coming-soon {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 1.25rem;
+}
+
 .container {
   position: relative;
   min-height: 100svh;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2320,6 +2331,7 @@ footer {
 }
 .container .main {
   background-color: #ffffff;
+  color: #191919;
   border-radius: 1.25rem;
   padding: 2rem 1rem;
   width: 22.5rem;

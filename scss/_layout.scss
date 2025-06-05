@@ -104,9 +104,20 @@ footer {
     text-align: center;
 }
 
+.coming-soon {
+    margin-top: px(8);
+    padding: px(16);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: px(20);
+}
+
 .container {
     position: relative;
     min-height: 100svh;
+    color: color(gray-0);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -120,6 +131,7 @@ footer {
 
     .main {
         background-color: color(gray-0);
+        color: color(gray-900);
         @include rounded(20);
         padding: px(32) px(16);
         width: px(360);
