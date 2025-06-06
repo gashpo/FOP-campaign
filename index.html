@@ -42,16 +42,9 @@
     <div id="lottie-bg"></div>
 
     <div class="container">
-        <!-- demo先偷把error頁的連結放在這裡 -->
-        <div class="logo"><a href="error.html"><img src="images/logo-dark.svg"></a></div>
-
-        <div class="coming-soon">
-            <!-- demo先偷把活動開關放在這裡 -->
-            <h2 onclick="start();">活動尚未開始</h2>
-            <p>活動即將於 yyyy/mm/dd 開始，敬請期待！</p>
-        </div>
+        <div class="logo"><img src="images/logo-dark.svg"></div>
         
-        <div class="main" style="display: none;">
+        <div class="main">
             <div class="number">
                 <span>卡片號碼</span>
                 <h3>0123456789</h3>
@@ -67,8 +60,7 @@
                 <div class="input-wrapper">
                     <div class="input-content">
                         <div>
-                            <!-- demo先偷把失敗彈窗的觸發放在這裡 -->
-                            <div class="select-wrapper" for="popup-failed">
+                            <div class="select-wrapper">
                                 <div class="select-dropdown disabled">+886</div>
                                 <div class="select-items">
                                     <ul>
@@ -88,11 +80,12 @@
             </div>
         </div>
 
-        <div class="copyright" style="display: none;">2025 GASH POINT Co., Ltd. All Rights Reserved.</div>
+        <div class="copyright">2025 GASH POINT Co., Ltd. All Rights Reserved.</div>
     </div>
 
     <div class="popup" id="popup-failed">
         <div class="images"><img src="images/illustration-failed.svg"></div>
+        <!-- 失敗彈窗共有三種情境，詳見Figma -->
         <h4>活動已結束</h4>
         <div class="popup-container">
           <p>所有 FunOne Points 已發放完畢，感謝您的參與。如需了解最新活動資訊，歡迎持續關注我們的<a class="link-secondary" href="https://points.funone.io/"><span>官網</span></a>。</p>
@@ -100,8 +93,8 @@
         <!-- <h4>領取失敗</h4>
         <div class="popup-container">
           <p>卡片號碼已被使用，請檢查是否掃描正確的卡片。</p>
-        </div>
-        <h4>領取失敗</h4>
+        </div> -->
+        <!-- <h4>領取失敗</h4>
         <div class="popup-container">
           <p>您已達到領取上限。<br>感謝您的參與，請持續關注我們未來的精彩活動！</p>
         </div> -->
@@ -136,6 +129,7 @@
     <script src="js/confetti.js"></script>
 
     <script>
+        // 手機欄位格式判斷 & 按鈕enable判斷
         const input = document.getElementById('mobile');
         const btn = document.getElementById('success');
 
@@ -163,12 +157,6 @@
                 this.value = '0' + this.value;
             }
         });
-
-        function start() {
-            $(".coming-soon").css("display", "none");
-            $(".main").css("display", "flex");
-            $(".copyright").css("display", "flex");
-        }
     </script>
 </body>
 
