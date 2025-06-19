@@ -932,12 +932,6 @@ input[type=submit] i {
   align-items: center;
   justify-content: center;
 }
-button .lottie-img,
-.btn .lottie-img,
-input[type=submit] .lottie-img {
-  height: 1.25rem;
-  width: 1.25rem;
-}
 button.icon-only,
 .btn.icon-only,
 input[type=submit].icon-only {
@@ -2222,7 +2216,7 @@ input[type=text], input[type=tel] {
     }
   }
 }
-#lottie-bg {
+.lottie-bg {
   position: fixed;
   top: -3.125rem;
   right: 0;
@@ -2231,7 +2225,7 @@ input[type=text], input[type=tel] {
   z-index: 0;
 }
 @media (max-width: 991px) {
-  #lottie-bg {
+  .lottie-bg {
     top: 2rem;
     right: -50lvh;
     bottom: 2rem;
@@ -2425,7 +2419,7 @@ main .desc {
   gap: 0.5rem;
 }
 
-canvas {
+#canvas {
   pointer-events: none;
   position: fixed;
   top: 0;
