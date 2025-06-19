@@ -932,6 +932,12 @@ input[type=submit] i {
   align-items: center;
   justify-content: center;
 }
+button .lottie-img,
+.btn .lottie-img,
+input[type=submit] .lottie-img {
+  height: 1.25rem;
+  width: 1.25rem;
+}
 button.icon-only,
 .btn.icon-only,
 input[type=submit].icon-only {
